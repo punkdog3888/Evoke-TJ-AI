@@ -1,0 +1,41 @@
+{
+  "name": "tj-companion",
+  "version": "1.0.1",
+  "description": "TJ - Antarctic AI companion v2",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.evoke.tj",
+    "productName": "TJ Neuralink 1.0.1",
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icon.ico"
+    },
+    "extraResources": [
+      {
+        "from": "resources/ollama",
+        "to": "ollama",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "resources/models",
+        "to": "models",
+        "filter": ["**/*"]
+      }
+    ],
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "style.css",
+      "renderer.js"
+    ]
+  }
+}
